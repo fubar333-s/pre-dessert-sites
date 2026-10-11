@@ -1,6 +1,6 @@
 # 待确认站点列表
 
-以下候选项按截图出现顺序整理，仅用于逐项确认，不代表已确认拥有。已按先前要求移除天雪论坛和 BYRBT；重复的 `hdcity` 书签仅保留一次，DIC Music 博客未列入 PT 站点。所有条目的确认状态均为“待确认”。
+以下候选项按最新截图出现顺序整理，仅用于逐项确认，不代表已确认拥有。重复的 `hdcity` 书签仅保留一次，DIC Music 博客未列入 PT 站点；“天学/天雪论坛”按要求排除。所有条目的确认状态均为“待确认”。
 
 |编号|站点名称|site_code|配置文件|配置状态|确认状态|
 |-|-|-|-|-|-|
@@ -30,7 +30,7 @@
 |24|HDCITY|`hdcity`|`hdcity.json`|配置存在|待确认|
 |25|HDTIME|`hd_time`|`hd_time.json`|配置存在|待确认|
 |26|PTHOME|`pthome`|`pthome.json`|配置存在|待确认|
-|27|TLFBits|待匹配|无|待新增配置|待确认|
+|27|TLFBits|`eastgame`|`eastgame.json`|配置存在|待确认|
 |28|TCCF|`tccf`|`tccf.json`|配置存在|待确认|
 |29|咖啡|`ptcafe`|`ptcafe.json`|配置存在|待确认|
 |30|杏坛|`xingtan`|`xingtan.json`|配置存在|待确认|
@@ -47,18 +47,19 @@
 |41|xloli（萝莉）|`ilolicon`|`ilolicon.json`|配置存在|待确认|
 |42|Rousi|`rousi`|`rousi.json`|配置存在|待确认|
 |43|GazelleGames|`ggpt`|`ggpt.json`|配置存在|待确认|
-|44|Orpheus|待匹配|无|待新增配置|待确认|
-|45|Redacted|`red`|`red.json`|配置存在|待确认|
-|46|Great Poster Wall（海豹）|`gpw`|`gpw.json`|配置存在|待确认|
-|47|JPopsuki 2.0|`jpop`|`jpop.json`|配置存在|待确认|
-|48|OpenCD（皇后）|`open_cd`|`open_cd.json`|配置存在|待确认|
-|49|猪猪网|`piggo`|`piggo.json`|配置存在|待确认|
-|50|PT时间|`pttime`|`pttime.json`|配置存在|待确认|
-|51|星空|`star_space`|`star_space.json`|配置存在|待确认|
-|52|TorrentLeech.org|待匹配|无|待新增配置|待确认|
-|53|梓喵|`azusa`|`azusa.json`|配置存在|待确认|
-|54|莫妮卡|`monikadesign`|`monikadesign.json`|配置存在|待确认|
-|55|蟹黄堡|`crabpt`|`crabpt.json`|配置存在|待确认|
-|56|Arctic Global Seed Vault|`agsvpt`|`agsvpt.json`|配置存在|待确认|
+|44|News :: Orpheus|待匹配|无|待新增配置|待确认|
+|45|News :: Redacted|`red`|`red.json`|配置存在|待确认|
+|46|BYRBT（北邮人）|`byr`|`byr.json`|配置存在|待确认|
+|47|Great Poster Wall（海豹）|`gpw`|`gpw.json`|配置存在|待确认|
+|48|JPopsuki 2.0|`jpop`|`jpop.json`|配置存在|待确认|
+|49|OpenCD（皇后）|`open_cd`|`open_cd.json`|配置存在|待确认|
+|50|猪猪网|`piggo`|`piggo.json`|配置存在|待确认|
+|51|PT时间|`pttime`|`pttime.json`|配置存在|待确认|
+|52|星空|`star_space`|`star_space.json`|配置存在|待确认|
+|53|TorrentLeech.org|待匹配|无|待新增配置|待确认|
+|54|梓喵|`azusa`|`azusa.json`|配置存在|待确认|
+|55|莫妮卡|`monikadesign`|`monikadesign.json`|配置存在|待确认|
+|56|蟹黄堡|`crabpt`|`crabpt.json`|配置存在|待确认|
+|57|Arctic Global Seed Vault|`agsvpt`|`agsvpt.json`|配置存在|待确认|
 
 逐项确认后，再将确认的站点加入正式清单 `MY_SITES.md`。
