@@ -4,11 +4,11 @@
 
 | 站点名称 | site_code | 配置文件 | 登录结构 | user_basic_info | search | sign_in | 状态 |
 |---|---|---|---|---|---|---|---|
-| HDHome | `hd_home` | `hd_home.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 无独立请求项；引用公共 schema | 已有，待测试 |
-| HDU | `hdu` | `hdu.json` | 无独立登录字段；引用公共 schema | 无独立请求项 | 有 | 有 | 已有，待测试 |
-| HDArea | `hd_area` | `hd_area.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 有 | 已有，待测试 |
-| OpenCD | `open_cd` | `open_cd.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 有，分为页面与操作请求 | 已有，待测试 |
-| HDTime | `hd_time` | `hd_time.json` | 无独立登录字段；引用公共 schema | 无独立请求项 | 有 | 无独立请求项；引用公共 schema | 已有，待测试 |
+| HDHome | `hd_home` | `hd_home.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 无独立请求项；引用公共 schema | 配置存在，待验证 |
+| HDU | `hdu` | `hdu.json` | 无独立登录字段；引用公共 schema | 无独立请求项 | 有 | 有 | 配置存在，待验证 |
+| HDArea | `hd_area` | `hd_area.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 有 | 配置存在，待验证 |
+| OpenCD | `open_cd` | `open_cd.json` | 无独立登录字段；引用公共 schema | 有 | 有 | 有，分为页面与操作请求 | 配置存在，待验证 |
+| HDTime | `hd_time` | `hd_time.json` | 无独立登录字段；引用公共 schema | 无独立请求项 | 有 | 无独立请求项；引用公共 schema | 配置存在，待验证 |
 
 ## 维护范围
 
