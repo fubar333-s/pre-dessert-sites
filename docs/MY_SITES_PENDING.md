@@ -1,6 +1,6 @@
 # 待确认站点列表
 
-以下候选项按用户提供的顺序排列，仅用于逐项确认，不代表已确认拥有。配置匹配仅依据 `site_config/sites/*.json` 的公开文件名及站点标识；未读取认证或登录字段。所有条目的确认状态均为“待确认”。
+以下候选项按截图出现顺序整理，仅用于逐项确认，不代表已确认拥有。已按先前要求移除天雪论坛和 BYRBT；重复的 `hdcity` 书签仅保留一次，DIC Music 博客未列入 PT 站点。所有条目的确认状态均为“待确认”。
 
 |编号|站点名称|site_code|配置文件|配置状态|确认状态|
 |-|-|-|-|-|-|
@@ -24,39 +24,41 @@
 |18|KEEPFRDS（月月）|`keepfrds`|`keepfrds.json`|配置存在|待确认|
 |19|海棠PT|`htpt`|`htpt.json`|配置存在|待确认|
 |20|OshenPT（欧神）|`oshenpt`|`oshenpt.json`|配置存在|待确认|
-|21|JPopsuki|`jpop`|`jpop.json`|配置存在|待确认|
-|22|OpenCD（皇后）|`open_cd`|`open_cd.json`|配置存在|待确认|
-|23|猪猪网|`piggo`|`piggo.json`|配置存在|待确认|
-|24|PT时间|`pttime`|`pttime.json`|配置存在|待确认|
-|25|星空|`star_space`|`star_space.json`|配置存在|待确认|
-|26|TorrentLeech|待匹配|无|待新增配置|待确认|
-|27|梓喵|`azusa`|`azusa.json`|配置存在|待确认|
-|28|莫妮卡|`monikadesign`|`monikadesign.json`|配置存在|待确认|
-|29|蟹黄堡|`crabpt`|`crabpt.json`|配置存在|待确认|
-|30|Arctic Global Seed Vault|`agsvpt`|`agsvpt.json`|配置存在|待确认|
-|31|52PT|`52pt`|`52pt.json`|配置存在|待确认|
-|32|BTSCHOOL|`btschool`|`btschool.json`|配置存在|待确认|
-|33|HDArea|`hd_area`|`hd_area.json`|配置存在|待确认|
-|34|HDCITY|`hdcity`|`hdcity.json`|配置存在|待确认|
-|35|HDTIME|`hd_time`|`hd_time.json`|配置存在|待确认|
-|36|PTHOME|`pthome`|`pthome.json`|配置存在|待确认|
-|37|TLFBits|待匹配|无|待新增配置|待确认|
-|38|TorrentCCF|`tccf`|`tccf.json`|配置存在|待确认|
-|39|咖啡|`ptcafe`|`ptcafe.json`|配置存在|待确认|
-|40|杏坛|`xingtan`|`xingtan.json`|配置存在|待确认|
-|41|烧包|`ptsbao`|`ptsbao.json`|配置存在|待确认|
-|42|百川PT|`hitpt`|`hitpt.json`|配置存在|待确认|
-|43|聆音Club|`soulvoice`|`soulvoice.json`|配置存在|待确认|
-|44|葡萄|`putao`|`putao.json`|配置存在|待确认|
-|45|龙之家|`dragonhd`|`dragonhd.json`|配置存在|待确认|
-|46|HDU|`hdu`|`hdu.json`|配置存在|待确认|
-|47|UBits|`ubits`|`ubits.json`|配置存在|待确认|
-|48|HDHome（家园）|`hd_home`|`hd_home.json`|配置存在|待确认|
-|49|HHClub|`hhanclub`|`hhanclub.json`|配置存在|待确认|
-|50|DiscFan|`discfan`|`discfan.json`|配置存在|待确认|
-|51|xloli（萝莉）|`ilolicon`|`ilolicon.json`|配置存在|待确认|
-|52|Rousi|`rousi`|`rousi.json`|配置存在|待确认|
-|53|GazelleGames|`ggpt`|`ggpt.json`|配置存在|待确认|
-|54|Orpheus|待匹配|无|待新增配置|待确认|
-|55|Redacted|`red`|`red.json`|配置存在|待确认|
-|56|JoyHD|`joyhd`|`joyhd.json`|配置存在|待确认|
+|21|52PT|`52pt`|`52pt.json`|配置存在|待确认|
+|22|BTSCHOOL|`btschool`|`btschool.json`|配置存在|待确认|
+|23|HDArea|`hd_area`|`hd_area.json`|配置存在|待确认|
+|24|HDCITY|`hdcity`|`hdcity.json`|配置存在|待确认|
+|25|HDTIME|`hd_time`|`hd_time.json`|配置存在|待确认|
+|26|PTHOME|`pthome`|`pthome.json`|配置存在|待确认|
+|27|TLFBits|待匹配|无|待新增配置|待确认|
+|28|TCCF|`tccf`|`tccf.json`|配置存在|待确认|
+|29|咖啡|`ptcafe`|`ptcafe.json`|配置存在|待确认|
+|30|杏坛|`xingtan`|`xingtan.json`|配置存在|待确认|
+|31|烧包|`ptsbao`|`ptsbao.json`|配置存在|待确认|
+|32|百川PT|`hitpt`|`hitpt.json`|配置存在|待确认|
+|33|聆音Club|`soulvoice`|`soulvoice.json`|配置存在|待确认|
+|34|葡萄|`putao`|`putao.json`|配置存在|待确认|
+|35|龙之家|`dragonhd`|`dragonhd.json`|配置存在|待确认|
+|36|HDU|`hdu`|`hdu.json`|配置存在|待确认|
+|37|UBits|`ubits`|`ubits.json`|配置存在|待确认|
+|38|HDHome（家园）|`hd_home`|`hd_home.json`|配置存在|待确认|
+|39|HHCLUB|`hhanclub`|`hhanclub.json`|配置存在|待确认|
+|40|DiscFan|`discfan`|`discfan.json`|配置存在|待确认|
+|41|xloli（萝莉）|`ilolicon`|`ilolicon.json`|配置存在|待确认|
+|42|Rousi|`rousi`|`rousi.json`|配置存在|待确认|
+|43|GazelleGames|`ggpt`|`ggpt.json`|配置存在|待确认|
+|44|Orpheus|待匹配|无|待新增配置|待确认|
+|45|Redacted|`red`|`red.json`|配置存在|待确认|
+|46|Great Poster Wall（海豹）|`gpw`|`gpw.json`|配置存在|待确认|
+|47|JPopsuki 2.0|`jpop`|`jpop.json`|配置存在|待确认|
+|48|OpenCD（皇后）|`open_cd`|`open_cd.json`|配置存在|待确认|
+|49|猪猪网|`piggo`|`piggo.json`|配置存在|待确认|
+|50|PT时间|`pttime`|`pttime.json`|配置存在|待确认|
+|51|星空|`star_space`|`star_space.json`|配置存在|待确认|
+|52|TorrentLeech.org|待匹配|无|待新增配置|待确认|
+|53|梓喵|`azusa`|`azusa.json`|配置存在|待确认|
+|54|莫妮卡|`monikadesign`|`monikadesign.json`|配置存在|待确认|
+|55|蟹黄堡|`crabpt`|`crabpt.json`|配置存在|待确认|
+|56|Arctic Global Seed Vault|`agsvpt`|`agsvpt.json`|配置存在|待确认|
+
+逐项确认后，再将确认的站点加入正式清单 `MY_SITES.md`。
