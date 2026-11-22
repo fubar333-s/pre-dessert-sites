@@ -22,5 +22,7 @@ configsUrl: https://github.com/fubar333-s/pre-dessert-sites/archive/main.zip
 | 2026-11-22 | `site_config/sites/piggo.json` | `user_basic_info.is_login` 改为 `code` eq `0` | 改为与 Rousi 一致的判断方式。后来查明“未登录”的主要原因是 MS 的 20 秒访问间隔流控；原来的 `not_blank` 规则是否也有问题，没有单独验证 |
 | 2026-11-22 | `site_config/sites/u2.json` | `schema`: `u2` → `NexusPHP`，`required.sign_in`: `true` → `false` | U2 签到页新增 `_csrf`，MS 的 u2 专用客户端解析失败并误报“Cookie失效”；改为只模拟登录。专用客户端会忽略 `required.sign_in`（皇后即如此），所以 schema 也要改 |
 | 2026-11-22 | `site_config/sites/{audiences,dragonhd,putao}.json` | `required.sign_in`: `true` → `false` | 站点没有 `attendance.php`（MS 签到报 404），登录后首页也没有任何签到入口；改为只模拟登录 |
+| 2026-11-22 | `site_config/sites/{gpw,dic,azusa}.json` | `required.sign_in`: `true` → `false` | gpw、dic 是 Gazelle 站，Azusa 首页也没有签到入口，都没有签到功能；改为只模拟登录 |
+| 2026-11-22 | `site_config/sites/{ourbits,ilolicon,hddolby}.json` | `required.sign_in`: `true` → `false` | 签到需要人工验证：OurBits 有签到验证程序和验证码，萝莉有 Cloudflare Turnstile，杜比签到前要做两步验证（take2fa.php）；改为只模拟登录 |
 
 适合上游的修改可以再向上游提 PR；上游合并后，本表对应行可删除。
