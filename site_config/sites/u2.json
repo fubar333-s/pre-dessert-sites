@@ -3,11 +3,11 @@
   "name": "幼儿园",
   "domain": "https://u2.dmhy.org",
   "public": false,
-  "schema": "u2",
+  "schema": "NexusPHP",
   "reuse_schema": "NexusPHP",
   "required": {
     "cookie": true,
-    "sign_in": true
+    "sign_in": false
   },
   "meta": {
     "has_free": true,
