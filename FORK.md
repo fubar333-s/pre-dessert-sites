@@ -24,5 +24,7 @@ configsUrl: https://github.com/fubar333-s/pre-dessert-sites/archive/main.zip
 | 2026-11-22 | `site_config/sites/{audiences,dragonhd,putao}.json` | `required.sign_in`: `true` → `false` | 站点没有 `attendance.php`（MS 签到报 404），登录后首页也没有任何签到入口；改为只模拟登录 |
 | 2026-11-22 | `site_config/sites/{gpw,dic,azusa}.json` | `required.sign_in`: `true` → `false` | gpw、dic 是 Gazelle 站，Azusa 首页也没有签到入口，都没有签到功能；改为只模拟登录 |
 | 2026-11-22 | `site_config/sites/{ourbits,ilolicon,hddolby}.json` | `required.sign_in`: `true` → `false` | 签到需要人工验证：OurBits 有签到验证程序和验证码，萝莉有 Cloudflare Turnstile，杜比签到前要做两步验证（take2fa.php）；改为只模拟登录 |
+| 2026-11-22 | `site_config/sites/52pt.json` | `schema`: `pt52pt` → `NexusPHP`，`required.sign_in`: `true` → `false` | 签到页改为 `bakatestfinal.php`，并要求 Cloudflare Turnstile 人机验证，无法自动签到；改为只模拟登录 |
+| 2026-11-22 | `site_config/sites/open_cd.json` | `schema`: `opencd` → `NexusPHP`（`required.sign_in` 原本就是 `false`） | 签到表单新增 `csrf_token`，MS 的 opencd 客户端提交时返回 403；改为只模拟登录，等 MS 支持后再改回 |
 
 适合上游的修改可以再向上游提 PR；上游合并后，本表对应行可删除。
