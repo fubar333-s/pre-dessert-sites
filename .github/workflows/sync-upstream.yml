@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sync-upstream
@@ -28,8 +29,10 @@ jobs:
           fetch-depth: 0
 
       - name: Merge upstream main
+        id: merge
         run: |
           set -euo pipefail
+          echo "pushed=false" >> "$GITHUB_OUTPUT"
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add upstream https://github.com/mantou568/pre-dessert-sites.git
@@ -43,7 +46,17 @@ jobs:
             git diff --name-only --diff-filter=U
             exit 1
           fi
-          for f in $(git diff --name-only --diff-filter=AM HEAD@{1} HEAD --'site_config/**/*.json'); do
+          # 校验本次合并带进来的 JSON，坏文件不推送
+          git diff --name-only --diff-filter=AM ORIG_HEAD HEAD -- site_config/ | { grep '\.json$' || true; } | while read -r f; do
             python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$f"
           done
           git push origin HEAD:main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # GITHUB_TOKEN 的推送不会触发其他工作流，这里显式触发 release.yml，
+      # 生成新的 main_* Release，Media Saber 才能拉到同步后的配置。
+      - name: Trigger release
+        if: steps.merge.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run release.yml --repo "$GITHUB_REPOSITORY" --ref main
