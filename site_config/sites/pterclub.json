@@ -2,7 +2,9 @@
   "id": "pterclub",
   "name": "猫站",
   "domain": "https://pterclub.net",
-  "additional_domain": ["https://pterclub.com"],
+  "additional_domain": [
+    "https://pterclub.com"
+  ],
   "public": false,
   "schema": "NexusPHP",
   "required": {
@@ -492,10 +494,13 @@
           "selector": "status",
           "filters": [
             {
-              "name": "eq",
-              "args": "0"
+              "name": "regex",
+              "args": "^1$"
             }
           ]
+        },
+        "message": {
+          "selector": "message"
         }
       }
     }
