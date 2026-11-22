@@ -1,0 +1,49 @@
+# 每天把上游 mantou568/pre-dessert-sites 的 main 合并进本 fork 的 main。
+# 本 fork 自己的修改保留；与上游冲突时本次运行失败（GitHub 会发邮件通知），需要人工解决，不会强推覆盖。
+# 时间：UTC 23:30 = 北京时间 07:30，早于 Media Saber 每天 09:19 的站点配置更新。
+name: Sync Upstream
+
+on:
+  schedule:
+    - cron: '30 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'fubar333-s/pre-dessert-sites'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Merge upstream main
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/mantou568/pre-dessert-sites.git
+          git fetch --no-tags upstream main
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "已包含上游最新提交，无需同步。"
+            exit 0
+          fi
+          if ! git merge --no-edit upstream/main -m "merge: 同步上游 mantou568/pre-dessert-sites main"; then
+            echo "::error::与上游冲突，需要人工合并："
+            git diff --name-only --diff-filter=U
+            exit 1
+          fi
+          for f in $(git diff --name-only --diff-filter=AM HEAD@{1} HEAD --'site_config/**/*.json'); do
+            python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$f"
+          done
+          git push origin HEAD:main

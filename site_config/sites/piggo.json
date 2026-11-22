@@ -119,10 +119,11 @@
       },
       "fields": {
         "is_login": {
-          "selector": "data.user.id",
+          "selector": "code",
           "filters": [
             {
-              "name": "not_blank"
+              "name": "eq",
+              "args": "0"
             }
           ]
         },
