@@ -1,0 +1,148 @@
+{
+  "id": "orpheus",
+  "name": "Orpheus",
+  "domain": "https://orpheus.network",
+  "public": false,
+  "reuse_schema": "NexusPHP",
+  "required": {
+    "cookie": true,
+    "sign_in": false
+  },
+  "requests": {
+    "favicon": {
+      "parser": "None",
+      "method": "GET",
+      "path": "/favicon.ico"
+    },
+    "user_basic_info": {
+      "parser": "JsonPath",
+      "method": "GET",
+      "path": "/ajax.php?action=index",
+      "fields": {
+        "is_login": {
+          "selector": "response.username",
+          "filters": [
+            {
+              "name": "not_blank"
+            }
+          ]
+        },
+        "id": {
+          "selector": "response.id"
+        },
+        "name": {
+          "selector": "response.username"
+        },
+        "bonus": {
+          "selector": "response.userstats.bonusPoints"
+        },
+        "uploaded": {
+          "selector": "response.userstats.uploaded",
+          "filters": [
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "downloaded": {
+          "selector": "response.userstats.downloaded",
+          "filters": [
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "ratio": {
+          "selector": "response.userstats.ratio",
+          "filters": [
+            {
+              "name": "replace",
+              "args": [
+                "∞",
+                "0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "user_details": {
+      "parser": "JsonPath",
+      "method": "GET",
+      "path": "/ajax.php?action=user&id={userId}",
+      "fields": {
+        "level": {
+          "selector": "response.personal.class"
+        },
+        "join_at": {
+          "selector": "response.stats.joinedDate",
+          "filters": [
+            {
+              "name": "timestamp"
+            }
+          ]
+        },
+        "last_accessed": {
+          "selector": "response.stats.lastAccess",
+          "filters": [
+            {
+              "name": "timestamp"
+            },
+            {
+              "name": "timezone",
+              "args": [
+                "+8"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "seeding_statistics": {
+      "parser": "JsonPath",
+      "method": "GET",
+      "path": "/ajax.php?action=user&id={userId}",
+      "disabled_extends": {
+        "list": true
+      },
+      "fields": {
+        "count": {
+          "selector": "response.community.seeding"
+        }
+      }
+    },
+    "search": {
+      "disabled": true
+    },
+    "rss": {
+      "disabled": true
+    },
+    "get_rss": {
+      "disabled": true
+    },
+    "messages": {
+      "disabled": true
+    },
+    "message_detail": {
+      "disabled": true
+    },
+    "notice": {
+      "disabled": true
+    },
+    "my_hr": {
+      "disabled": true
+    },
+    "details": {
+      "disabled": true
+    },
+    "get_subtitle_url": {
+      "disabled": true
+    },
+    "shoutbox": {
+      "disabled": true
+    },
+    "sign_in": {
+      "disabled": true
+    }
+  }
+}

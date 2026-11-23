@@ -1,0 +1,171 @@
+{
+  "id": "gazellegames",
+  "name": "GazelleGames",
+  "domain": "https://gazellegames.net",
+  "public": false,
+  "reuse_schema": "NexusPHP",
+  "required": {
+    "cookie": true,
+    "sign_in": false
+  },
+  "requests": {
+    "favicon": {
+      "parser": "None",
+      "method": "GET",
+      "path": "/favicon.ico"
+    },
+    "user_basic_info": {
+      "parser": "XPath",
+      "method": "GET",
+      "path": "/index.php",
+      "disabled_extends": {
+        "fields": true
+      },
+      "fields": {
+        "is_login": {
+          "selector": "//a[contains(@href, 'logout.php')]/@href",
+          "filters": [
+            {
+              "name": "not_blank"
+            }
+          ]
+        },
+        "id": {
+          "selector": "*",
+          "selection": "html",
+          "filters": [
+            {
+              "name": "re_search",
+              "args": [
+                "user\\.php\\?id=(\\d+)",
+                1
+              ]
+            }
+          ]
+        },
+        "name": {
+          "selector": "(//a[contains(@href, 'user.php?id=')])[1]/text()"
+        }
+      }
+    },
+    "user_details": {
+      "parser": "XPath",
+      "method": "GET",
+      "path": "/user.php?id={userId}",
+      "disabled_extends": {
+        "fields": true
+      },
+      "fields": {
+        "uploaded": {
+          "selector": "*",
+          "selection": "html",
+          "filters": [
+            {
+              "name": "re_search",
+              "args": [
+                "Uploaded:\\s*(?:<[^>]+>\\s*)*([\\d,.]+\\s*[KMGTPE]?i?B)",
+                1
+              ]
+            },
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "downloaded": {
+          "selector": "*",
+          "selection": "html",
+          "filters": [
+            {
+              "name": "re_search",
+              "args": [
+                "Downloaded:\\s*(?:<[^>]+>\\s*)*([\\d,.]+\\s*[KMGTPE]?i?B)",
+                1
+              ]
+            },
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "ratio": {
+          "selector": "*",
+          "selection": "html",
+          "filters": [
+            {
+              "name": "re_search",
+              "args": [
+                "Ratio:\\s*(?:<[^>]+>\\s*)*(∞|[\\d,.]+)",
+                1
+              ]
+            },
+            {
+              "name": "replace",
+              "args": [
+                "∞",
+                "0"
+              ]
+            }
+          ]
+        },
+        "bonus": {
+          "selector": "*",
+          "selection": "html",
+          "filters": [
+            {
+              "name": "re_search",
+              "args": [
+                "Gold:\\s*(?:<[^>]+>\\s*)*([\\d,.]+)",
+                1
+              ]
+            }
+          ]
+        },
+        "join_at": {
+          "selector": "//span[contains(@class,'time')]/@title",
+          "filters": [
+            {
+              "name": "timestamp"
+            }
+          ]
+        }
+      }
+    },
+    "seeding_statistics": {
+      "disabled": true
+    },
+    "search": {
+      "disabled": true
+    },
+    "rss": {
+      "disabled": true
+    },
+    "get_rss": {
+      "disabled": true
+    },
+    "messages": {
+      "disabled": true
+    },
+    "message_detail": {
+      "disabled": true
+    },
+    "notice": {
+      "disabled": true
+    },
+    "my_hr": {
+      "disabled": true
+    },
+    "details": {
+      "disabled": true
+    },
+    "get_subtitle_url": {
+      "disabled": true
+    },
+    "shoutbox": {
+      "disabled": true
+    },
+    "sign_in": {
+      "disabled": true
+    }
+  }
+}
