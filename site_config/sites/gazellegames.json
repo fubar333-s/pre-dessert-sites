@@ -37,25 +37,15 @@
             {
               "name": "re_search",
               "args": [
-                "user\\.php\\?id=(\\d+)",
+                "class='username' href=\"user\\.php\\?id=(\\d+)\"",
                 1
               ]
             }
           ]
         },
         "name": {
-          "selector": "(//a[contains(@href, 'user.php?id=')])[1]/text()"
-        }
-      }
-    },
-    "user_details": {
-      "parser": "XPath",
-      "method": "GET",
-      "path": "/user.php?id={userId}",
-      "disabled_extends": {
-        "fields": true
-      },
-      "fields": {
+          "selector": "//a[@class='username']/text()"
+        },
         "uploaded": {
           "selector": "*",
           "selection": "html",
@@ -63,7 +53,7 @@
             {
               "name": "re_search",
               "args": [
-                "Uploaded:\\s*(?:<[^>]+>\\s*)*([\\d,.]+\\s*[KMGTPE]?i?B)",
+                "([\\d,.]+ [KMGTPE]?i?B) Uploaded",
                 1
               ]
             },
@@ -79,7 +69,7 @@
             {
               "name": "re_search",
               "args": [
-                "Downloaded:\\s*(?:<[^>]+>\\s*)*([\\d,.]+\\s*[KMGTPE]?i?B)",
+                "([\\d,.]+ [KMGTPE]?i?B) Downloaded",
                 1
               ]
             },
@@ -88,44 +78,50 @@
             }
           ]
         },
-        "ratio": {
-          "selector": "*",
-          "selection": "html",
+        "bonus": {
+          "selector": "//li[@id='stats_gold']/span/text()",
           "filters": [
-            {
-              "name": "re_search",
-              "args": [
-                "Ratio:\\s*(?:<[^>]+>\\s*)*(∞|[\\d,.]+)",
-                1
-              ]
-            },
             {
               "name": "replace",
               "args": [
-                "∞",
-                "0"
+                ",",
+                ""
               ]
             }
           ]
         },
-        "bonus": {
+        "ratio": {
+          "selector": "//li[@id='stats_ratio']/span/span/text()",
+          "filters": [
+            {
+              "name": "replace",
+              "args": [
+                ",",
+                ""
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "user_details": {
+      "parser": "XPath",
+      "method": "GET",
+      "path": "/user.php?id={userId}",
+      "disabled_extends": {
+        "fields": true
+      },
+      "fields": {
+        "level": {
           "selector": "*",
           "selection": "html",
           "filters": [
             {
               "name": "re_search",
               "args": [
-                "Gold:\\s*(?:<[^>]+>\\s*)*([\\d,.]+)",
+                "<li>Class: ([^<]+)</li>",
                 1
               ]
-            }
-          ]
-        },
-        "join_at": {
-          "selector": "//span[contains(@class,'time')]/@title",
-          "filters": [
-            {
-              "name": "timestamp"
             }
           ]
         }

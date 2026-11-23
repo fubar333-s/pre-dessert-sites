@@ -37,7 +37,7 @@
             {
               "name": "re_search",
               "args": [
-                "/profile/([^/\\\"']+)/view",
+                "/profile/([^/\"']+)/view",
                 1
               ]
             }
@@ -50,7 +50,7 @@
             {
               "name": "re_search",
               "args": [
-                "/profile/([^/\\\"']+)/view",
+                "/profile/([^/\"']+)/view",
                 1
               ]
             }
@@ -73,7 +73,7 @@
             {
               "name": "re_search",
               "args": [
-                "Uploaded.+?([\\d,.]+ [KMGTPEZ]?B)",
+                "(?s)title=\"Uploaded \\(Seeding\\)\".+?>([\\d,.]+ [KMGTPE]?B)<",
                 1
               ]
             },
@@ -89,7 +89,7 @@
             {
               "name": "re_search",
               "args": [
-                "Downloaded.+?([\\d,.]+ [KMGTPEZ]?B)",
+                "(?s)title=\"Downloaded \\(Leeching\\)\".+?>([\\d,.]+ [KMGTPE]?B)<",
                 1
               ]
             },
@@ -105,14 +105,14 @@
             {
               "name": "re_search",
               "args": [
-                "ratio-details\\\">(&inf|∞|[\\d,.]+)",
+                "profile-ratio-details\">([\\d,.]+|&infin;|∞)<",
                 1
               ]
             },
             {
               "name": "replace",
               "args": [
-                "&inf",
+                "&infin;",
                 "0"
               ]
             },
@@ -121,6 +121,13 @@
               "args": [
                 "∞",
                 "0"
+              ]
+            },
+            {
+              "name": "replace",
+              "args": [
+                ",",
+                ""
               ]
             }
           ]
@@ -132,25 +139,29 @@
             {
               "name": "re_search",
               "args": [
-                "total-TL-points.+?([\\d,.]+)",
+                "total-TL-points\">([\\d,.]+)<",
                 1
+              ]
+            },
+            {
+              "name": "replace",
+              "args": [
+                ",",
+                ""
               ]
             }
           ]
         },
-        "join_at": {
+        "level": {
           "selector": "*",
           "selection": "html",
           "filters": [
             {
               "name": "re_search",
               "args": [
-                "Registration date</td>\\s*<td>(.*?)</td>",
+                "<td>Class</td>\\s*<td>([^<]+)</td>",
                 1
               ]
-            },
-            {
-              "name": "timestamp"
             }
           ]
         }
