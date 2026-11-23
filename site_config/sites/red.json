@@ -154,7 +154,8 @@
         "ratio": {
           "selector": "response.userstats.ratio",
           "filters": [
-            { "name": "replace", "args": ["∞", "0"] }
+            { "name": "replace", "args": ["∞", "0"] },
+            { "name": "replace", "args": ["-1", "0"] }
           ]
         }
       }

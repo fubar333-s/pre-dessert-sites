@@ -55,6 +55,34 @@
               ]
             }
           ]
+        },
+        "uploaded": {
+          "selector": "//div[@title='Uploaded (Seeding)']/span/text()",
+          "filters": [
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "downloaded": {
+          "selector": "//div[@title='Downloaded (Leeching)']/span/text()",
+          "filters": [
+            {
+              "name": "byte_size"
+            }
+          ]
+        },
+        "bonus": {
+          "selector": "//span[@class='total-TL-points']/text()",
+          "filters": [
+            {
+              "name": "replace",
+              "args": [
+                ",",
+                ""
+              ]
+            }
+          ]
         }
       }
     },
@@ -66,81 +94,14 @@
         "fields": true
       },
       "fields": {
-        "uploaded": {
-          "selector": "*",
-          "selection": "html",
-          "filters": [
-            {
-              "name": "re_search",
-              "args": [
-                "(?s)title=\"Uploaded \\(Seeding\\)\".+?>([\\d,.]+ [KMGTPE]?B)<",
-                1
-              ]
-            },
-            {
-              "name": "byte_size"
-            }
-          ]
-        },
-        "downloaded": {
-          "selector": "*",
-          "selection": "html",
-          "filters": [
-            {
-              "name": "re_search",
-              "args": [
-                "(?s)title=\"Downloaded \\(Leeching\\)\".+?>([\\d,.]+ [KMGTPE]?B)<",
-                1
-              ]
-            },
-            {
-              "name": "byte_size"
-            }
-          ]
-        },
         "ratio": {
-          "selector": "*",
-          "selection": "html",
+          "selector": "//span[contains(@class,'profile-ratio-details')]/text()",
           "filters": [
-            {
-              "name": "re_search",
-              "args": [
-                "profile-ratio-details\">([\\d,.]+|&infin;|∞)<",
-                1
-              ]
-            },
-            {
-              "name": "replace",
-              "args": [
-                "&infin;",
-                "0"
-              ]
-            },
             {
               "name": "replace",
               "args": [
                 "∞",
                 "0"
-              ]
-            },
-            {
-              "name": "replace",
-              "args": [
-                ",",
-                ""
-              ]
-            }
-          ]
-        },
-        "bonus": {
-          "selector": "*",
-          "selection": "html",
-          "filters": [
-            {
-              "name": "re_search",
-              "args": [
-                "total-TL-points\">([\\d,.]+)<",
-                1
               ]
             },
             {

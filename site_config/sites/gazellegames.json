@@ -31,13 +31,12 @@
           ]
         },
         "id": {
-          "selector": "*",
-          "selection": "html",
+          "selector": "//a[@class='username']/@href",
           "filters": [
             {
               "name": "re_search",
               "args": [
-                "class='username' href=\"user\\.php\\?id=(\\d+)\"",
+                "id=(\\d+)",
                 1
               ]
             }
